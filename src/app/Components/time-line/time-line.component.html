@@ -1,1 +1,42 @@
-<p>time-line works!</p>
+<div>
+    <div style="float:left">
+        <ejs-schedule
+        [eventSettings]="eventObject"
+        [selectedDate]="setDate"
+        [currentView]="setView"
+        [views]="setViews"
+    
+        #scheduleObj
+        [group]="groupData"
+       >
+       <e-resources>
+        <e-resource
+        field="ResourceID"
+       title="Resource Name"
+       name="Resources"
+       textField="Name"
+       idField="Id"
+       colorField='Color'
+       [dataSource]="infoResources.value">
+
+        </e-resource>
+       </e-resources> 
+        <ng-template #resourceHeaderTemplate let-data>
+        <div class='template-wrap'>
+
+          <div class="name">{{infRes[0].Name}}</div>
+        
+        </div>
+      </ng-template> 
+       </ejs-schedule>
+    </div>
+    <!-- <div style="width:110px; float:right; margin-right: 150px;">
+        <ejs-treeview
+        [fields]="field"
+        allowDragAndDrop="true"
+        (nodeDragStop)="onTreeDragStop($event)"
+        ></ejs-treeview>
+    </div> -->
+   
+   
+</div>

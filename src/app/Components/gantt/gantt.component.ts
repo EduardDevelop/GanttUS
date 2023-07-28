@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { GanttComponent } from '@syncfusion/ej2-angular-gantt';
-import { FormControl } from '@angular/forms';
 import { editingResources, projectNewData } from 'src/data';
 
 @Component({

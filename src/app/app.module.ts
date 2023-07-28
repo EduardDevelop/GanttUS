@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {EditService, GanttModule, SelectionService, ToolbarService, FilterService} from '@syncfusion/ej2-angular-gantt';
+import {EditService, GanttModule, SelectionService, ToolbarService, FilterService, ResizeService} from '@syncfusion/ej2-angular-gantt';
 import { GridModule } from '@syncfusion/ej2-angular-grids';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
+import { ToolbarModule, TreeViewModule } from '@syncfusion/ej2-angular-navigations';
 import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +19,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { ScheduleModule, RecurrenceEditorModule, DayService,WeekService,WorkWeekService, MonthService,MonthAgendaService, TimelineViewsService, DragAndDropService, TimelineMonthService } from '@syncfusion/ej2-angular-schedule';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,9 @@ import { MatListModule } from '@angular/material/list';
     MenuComponent
   ],
   imports: [
+    HttpClientModule,
+    ScheduleModule,
+    RecurrenceEditorModule,
     BrowserModule,
     AppRoutingModule,
     GanttModule,
@@ -42,9 +47,12 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    TreeViewModule
   ],
-  providers: [EditService, ToolbarService, SelectionService,FilterService],
+  providers: [EditService, ToolbarService, SelectionService,
+  FilterService, DayService, WeekService,WorkWeekService,MonthService, 
+  MonthAgendaService,TimelineMonthService ,TimelineViewsService,TimelineMonthService, DragAndDropService, ResizeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
